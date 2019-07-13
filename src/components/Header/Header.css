@@ -8,11 +8,11 @@
   align-items: center;
   justify-content: space-between;
   height: 140px;
-  padding: 0 80px;
+  padding: 0 60px;
 }
 
 #header-logo {
-  width: 50px;
+  width: 80px;
   margin-right: 1em;
 }
 

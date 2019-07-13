@@ -8,6 +8,7 @@ import Header from '../Header/Header'
 // 3. Packages
 import { createBrowserHistory } from 'history'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 // 4. Data
 import routes from '../../routes';
@@ -34,4 +35,8 @@ class App extends React.Component {
   }
 };
 
-export default App;
+const mapStateToProps = state => {
+  return state
+}
+
+export default connect(mapStateToProps)(App)

@@ -8,4 +8,4 @@ const Albums = (props) => {
   )
 };
 
-export default Albums;
+export default Albums
