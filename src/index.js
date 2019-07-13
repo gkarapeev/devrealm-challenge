@@ -1,9 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App/App';
-import * as serviceWorker from './serviceWorker';
+// 1. React
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// 2. Components
+import App from './components/App/App'
+
+// 3. Packages
+import * as serviceWorker from './serviceWorker'
+ReactDOM.render(<App />, document.getElementById('root'))
 
 serviceWorker.unregister();
