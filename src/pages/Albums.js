@@ -7,17 +7,14 @@ import Album from '../components/Album/Album'
 
 // 3. Packages
 import { connect } from 'react-redux'
+import { updateAlbums } from '../actions/album-actions'
 
 // 4. Data
 import data from '../mock-data/data'
 
 class Albums extends React.Component {
 
-  state = {
-    albums: []
-  }
-
-  loadAlbums = async () => {
+  onUpdateAlbums = async () => {
 
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => resolve(data), 1000)
@@ -25,17 +22,17 @@ class Albums extends React.Component {
 
     let result = await promise
 
-    this.setState({ albums: result })
+    this.props.onUpdateAlbums(result)
   }
 
   componentDidMount() {
-    this.loadAlbums()
+    this.onUpdateAlbums()
   }
 
   render() {
     return (
       <div className='album-container'>
-        {this.state.albums.map((album, albumIndex) => {
+        {this.props.albums.map((album, albumIndex) => {
           return (
             <Album
               thumb={album.photos[0].thumbnailUrl}
@@ -52,4 +49,11 @@ const mapStateToProps = state => {
   return state
 }
 
-export default connect(mapStateToProps)(Albums)
+const mapActionsToProps = {
+  onUpdateAlbums: updateAlbums
+}
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Albums)

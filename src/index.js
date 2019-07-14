@@ -10,15 +10,11 @@ import App from './components/App/App'
 import * as serviceWorker from './serviceWorker'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-
-
-function reducer(state = [], action) {
-  return state
-}
+import albumReducer from './reducers/album-reducer'
 
 const store = createStore(
-  reducer,
-  {},
+  albumReducer,
+  {albums: []},
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
