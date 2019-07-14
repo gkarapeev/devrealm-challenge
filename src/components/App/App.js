@@ -4,11 +4,11 @@ import './App.css'
 
 // 2. Components
 import Header from '../Header/Header'
+import Container from '../Container/Container'
 
 // 3. Packages
 import { createBrowserHistory } from 'history'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 // 4. Data
 import routes from '../../routes';
@@ -24,7 +24,9 @@ class App extends React.Component {
           <Switch>
             {routes.map((route, index) => {
               return (
-                <Route path={route.path} component={route.component} key={index} />
+                <Container key={index}>
+                  <Route path={route.path} component={route.component} />
+                </Container>
               )
             })}
             <Redirect from='/' to='/albums' />
@@ -33,10 +35,6 @@ class App extends React.Component {
       </div>
     )
   }
-};
-
-const mapStateToProps = state => {
-  return state
 }
 
-export default connect(mapStateToProps)(App)
+export default App

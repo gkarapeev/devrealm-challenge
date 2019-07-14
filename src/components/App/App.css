@@ -1,7 +1,6 @@
-body {
-  background-color: #ebebeb;
-}
-
-h2 {
-  color: #3c3c3c;
+.App {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
 }
